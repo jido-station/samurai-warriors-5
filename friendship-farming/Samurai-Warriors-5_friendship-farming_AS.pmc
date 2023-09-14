@@ -1,0 +1,33 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=Start:1
+1|[CommentBlock]|start the script inside the Citadel Mode menu|0|1|CommentBlock|||||1|
+2|If Window Active|Chiaki  Stream|1|0|If_Statement|||||4|
+3|[LoopStart]|LoopStart|0|0|Loop|||||6|
+4|[CommentBlock]|keep pressing circle to pass through scenario selection and character selection until "Begin Battle" found, then break the loop|0|1|CommentBlock|||||8|
+5|[LoopStart]|LoopStart|0|0|Loop|||||11|
+6|Break, Continue, FoundX, FoundY, 0|17, 458, 395, 684, *60 .\Screen_20230911180526.png|1|100|ImageSearch||Window|||13|
+7|k Down|{k Down}|1|60|Send|||||18|
+8|k Up|{k Up}|1|300|Send|||||20|
+9|[LoopEnd]|LoopEnd|1|0|Loop|||||22|
+10|[CommentBlock]|follow the flow of "Begin Battle" found, press UP to move the cursor, then press circle to Begin Battle|0|1|CommentBlock|||||23|
+11|Up|{Up Down}|1|60|Send|||||26|
+12|Up|{Up Up}|1|60|Send|||||28|
+13|[CommentBlock]|keep pressing circle until "pt." image is found at the bottom right corner, indicate the stage is loaded and the battle began, then break the loop|0|1|CommentBlock|||keep pressing circle until "pt." image is found, incidate the stage is loaded and the battle began||30|
+14|[LoopStart]|LoopStart|0|0|Loop|||||33|
+15|k|{k Down}|1|60|Send|||||35|
+16|k|{k Up}|1|60|Send|||||37|
+17|Break, Continue, FoundX, FoundY, 0|1045, 601, 1286, 756, *60 .\Screen_20230912142440.png|1|0|ImageSearch||Window|||39|
+18|[LoopEnd]|LoopEnd|1|0|Loop|||||43|
+19|[CommentBlock]|Summon Unit 3 times|0|1|CommentBlock|||||44|
+20|[LoopStart]|LoopStart|3|0|Loop|||||47|
+21|Down|{Down Down}|1|60|Send|||||49|
+22|Down|{Down Up}|1|1000|Send|||||51|
+23|Right|{Right Down}|1|60|Send|||||53|
+24|Right|{Right Up}|1|1000|Send|||||55|
+25|[LoopEnd]|LoopEnd|1|0|Loop|||||57|
+26|[CommentBlock]|iteration end. start over the inner-loop keep pressing circle to pass through in-game objective, summary dialogue and scenario selection|0|1|CommentBlock|||||58|
+27|[LoopEnd]|LoopEnd|1|0|Loop|||iteration end, start from the beginine, to pass through in-game objective, summary dialog and Scenario Selection||61|
+28|[End If]|EndIf|1|0|If_Statement|||||62|
+
